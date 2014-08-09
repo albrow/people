@@ -27,8 +27,8 @@ func newJSONError(short string, err error) JSONResult {
 func newJSONValidationError(val *data.Validator) JSONResult {
 	return JSONResult{
 		Short:  "validationError",
-		Keys:   val.Keys,
-		Errors: val.Errors,
+		Keys:   val.Fields(),
+		Errors: val.Messages(),
 	}
 }
 
