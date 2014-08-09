@@ -16,7 +16,7 @@ func main() {
 	router.HandleFunc("/persons", persons.Create).Methods("POST")
 
 	n := negroni.New(negroni.NewLogger())
-	n.Use(recovery.JSONRecovery(false))
+	n.Use(recovery.JSONRecovery(true))
 	n.UseHandler(router)
 
 	n.Run(":3000")
