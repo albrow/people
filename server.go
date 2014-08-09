@@ -14,6 +14,10 @@ func main() {
 	router := mux.NewRouter()
 	persons := controllers.Persons{}
 	router.HandleFunc("/persons", persons.Create).Methods("POST")
+	router.HandleFunc("/persons/{id}", persons.Show).Methods("GET")
+	router.HandleFunc("/persons/{id}", persons.Update).Methods("PUT", "PATCH")
+	router.HandleFunc("/persons", persons.Index).Methods("GET")
+	router.HandleFunc("/persons/{id}", persons.Delete).Methods("DELETE")
 
 	n := negroni.New(negroni.NewLogger())
 	n.Use(recovery.JSONRecovery(true))
