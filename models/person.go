@@ -8,4 +8,5 @@ type Person struct {
 	Name string
 	Age  int
 	zoom.DefaultData
+	zoom.Sync
 }

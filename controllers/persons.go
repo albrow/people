@@ -51,6 +51,7 @@ func (c Persons) Show(res http.ResponseWriter, req *http.Request) {
 	if err := zoom.ScanById(id, p); err != nil {
 		panic(err)
 	}
+	defer p.Unlock()
 
 	// render response
 	dataMap := map[string]interface{}{"Person": p}
@@ -73,6 +74,7 @@ func (c Persons) Update(res http.ResponseWriter, req *http.Request) {
 	if err := zoom.ScanById(id, p); err != nil {
 		panic(err)
 	}
+	defer p.Unlock()
 
 	// update model
 	if personData.KeyExists("name") {
@@ -97,6 +99,9 @@ func (c Persons) Index(res http.ResponseWriter, req *http.Request) {
 	var persons []*models.Person
 	if err := zoom.NewQuery("Person").Scan(&persons); err != nil {
 		panic(err)
+	}
+	for _, p := range persons {
+		p.Unlock()
 	}
 
 	// render response
