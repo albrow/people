@@ -1,11 +1,13 @@
 package main
 
 import (
-	"github.com/albrow/learning/peeps-negroni/controllers"
-	"github.com/albrow/learning/peeps-negroni/models"
-	"github.com/albrow/negroni-json-recovery"
+	"github.com/albrow/peeps-negroni/controllers"
+	"github.com/albrow/peeps-negroni/models"
+
 	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
+
+	"github.com/albrow/negroni-json-recovery"
 )
 
 func main() {

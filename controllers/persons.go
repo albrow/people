@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"github.com/albrow/go-data-parser"
-	"github.com/albrow/learning/peeps-negroni/models"
+	"github.com/albrow/peeps-negroni/models"
 	"github.com/albrow/zoom"
 	"github.com/gorilla/mux"
 	"github.com/unrolled/render"
