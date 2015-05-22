@@ -5,9 +5,8 @@ import (
 )
 
 func Init() error {
-	if err := zoom.Init(&zoom.Configuration{Database: 1}); err != nil {
-		return err
-	}
+	zoom.Init(&zoom.Configuration{Database: 1})
+
 	var err error
 	People, err = zoom.Register(&Person{})
 	if err != nil {
