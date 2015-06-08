@@ -2,16 +2,20 @@ package models
 
 import (
 	"github.com/albrow/zoom"
+	"log"
 )
 
-func Init() error {
-	if err := zoom.Init(&zoom.Configuration{Database: 1}); err != nil {
-		return err
-	}
+var pool *zoom.Pool
+
+func init() {
+	pool = zoom.NewPool(&zoom.PoolConfig{Database: 1})
 	var err error
-	People, err = zoom.Register(&Person{})
+	People, err = pool.Register(&Person{})
 	if err != nil {
-		return err
+		log.Fatal(err)
 	}
-	return nil
+}
+
+func ClosePool() error {
+	return pool.Close()
 }

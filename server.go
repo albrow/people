@@ -10,9 +10,11 @@ import (
 )
 
 func main() {
-	if err := models.Init(); err != nil {
-		log.Fatal(err)
-	}
+	defer func() {
+		if err := models.ClosePool(); err != nil {
+			log.Fatal(err)
+		}
+	}()
 
 	router := mux.NewRouter()
 	people := controllers.People{}
