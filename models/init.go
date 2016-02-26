@@ -1,16 +1,22 @@
 package models
 
 import (
-	"github.com/albrow/zoom"
 	"log"
+
+	"github.com/albrow/zoom"
 )
 
-var pool *zoom.Pool
+var (
+	People *zoom.Collection
+	pool   *zoom.Pool
+)
 
 func init() {
-	pool = zoom.NewPool(&zoom.PoolConfig{Database: 1})
+	pool = zoom.NewPool(&zoom.PoolOptions{Database: 1})
 	var err error
-	People, err = pool.Register(&Person{})
+	People, err = pool.NewCollection(&Person{}, &zoom.CollectionOptions{
+		Index: true,
+	})
 	if err != nil {
 		log.Fatal(err)
 	}

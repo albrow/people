@@ -1,11 +1,12 @@
 package controllers
 
 import (
+	"net/http"
+
 	"github.com/albrow/forms"
-	"github.com/albrow/peeps-negroni/models"
+	"github.com/albrow/people/models"
 	"github.com/gorilla/mux"
 	"github.com/unrolled/render"
-	"net/http"
 )
 
 type People struct{}

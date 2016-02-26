@@ -1,12 +1,13 @@
 package main
 
 import (
+	"log"
+
 	"github.com/albrow/negroni-json-recovery"
-	"github.com/albrow/peeps-negroni/controllers"
-	"github.com/albrow/peeps-negroni/models"
+	"github.com/albrow/people/controllers"
+	"github.com/albrow/people/models"
 	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
-	"log"
 )
 
 func main() {
