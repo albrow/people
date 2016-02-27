@@ -1,7 +1,10 @@
 package controllers
 
 import (
+	"fmt"
 	"net/http"
+
+	"github.com/albrow/zoom"
 
 	"github.com/albrow/forms"
 	"github.com/albrow/people/models"
@@ -48,6 +51,12 @@ func (c People) Show(res http.ResponseWriter, req *http.Request) {
 	// find in the database
 	p := &models.Person{}
 	if err := models.People.Find(id, p); err != nil {
+		if _, ok := err.(zoom.ModelNotFoundError); ok {
+			r.JSON(res, 404, map[string]interface{}{
+				"error": fmt.Sprintf("Could not find Person with id = %s", id),
+			})
+			return
+		}
 		panic(err)
 	}
 
