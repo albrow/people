@@ -1,0 +1,14 @@
+package: github.com/albrow/people
+import:
+- package: github.com/albrow/forms
+  version: 0.3.x
+- package: github.com/albrow/negroni-json-recovery
+  version: 7047e5bd92bc51b9f6bf6c6f5d15818a4637e190
+- package: github.com/albrow/zoom
+  version: 0.15.x
+- package: github.com/codegangsta/negroni
+  version: c7477ad8e330bef55bf1ebe300cf8aa67c492d1b
+- package: github.com/gorilla/mux
+  version: dfc482b2558f4151fc8598139a686caf3fb2ef65
+- package: github.com/unrolled/render
+  version: 198ad4d8b8a4612176b804ca10555b222a086b40
