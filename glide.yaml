@@ -5,7 +5,7 @@ import:
 - package: github.com/albrow/negroni-json-recovery
   version: 7047e5bd92bc51b9f6bf6c6f5d15818a4637e190
 - package: github.com/albrow/zoom
-  version: 0.15.x
+  version: 0.19.x
 - package: github.com/codegangsta/negroni
   version: c7477ad8e330bef55bf1ebe300cf8aa67c492d1b
 - package: github.com/gorilla/mux

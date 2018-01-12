@@ -7,5 +7,5 @@ import (
 type Person struct {
 	Name string
 	Age  int
-	zoom.RandomId
+	zoom.RandomID
 }

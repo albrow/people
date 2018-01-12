@@ -12,11 +12,12 @@ var (
 )
 
 func init() {
-	pool = zoom.NewPool(&zoom.PoolOptions{Database: 1})
+	pool = zoom.NewPoolWithOptions(zoom.DefaultPoolOptions.WithDatabase(1))
 	var err error
-	People, err = pool.NewCollection(&Person{}, &zoom.CollectionOptions{
-		Index: true,
-	})
+	People, err = pool.NewCollectionWithOptions(
+		&Person{},
+		zoom.DefaultCollectionOptions.WithIndex(true),
+	)
 	if err != nil {
 		log.Fatal(err)
 	}
